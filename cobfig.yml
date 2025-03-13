@@ -1,0 +1,62 @@
+# Configuración básica del sitio
+title: CriptoEduAr 🌌
+description: "Tu guía educativa sobre criptomonedas y blockchain."
+baseurl: "" # Deja vacío si estás usando /root
+url: "https://ariasalejo.github.io" # URL base del sitio
+
+# Tema
+theme: minima # Tema predeterminado de Jekyll
+
+# Zona horaria
+timezone: America/Bogota
+
+# Autor
+author:
+  name: Alejandro Arias
+  email: ariasalejolondo@gmail.com
+  social:
+    twitter: https://twitter.com/tu-usuario # Reemplaza con tu usuario de Twitter
+    github: https://github.com/ariasalejo # Enlace a tu perfil de GitHub
+
+# Plugins
+plugins:
+  - jekyll-feed # Genera un feed RSS para tus posts
+  - jekyll-seo-tag # Mejora el SEO del sitio
+
+# Configuración adicional para gráficos en tiempo real y calculadora de precios
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    default_lang: 'plaintext'
+
+# Incluir scripts adicionales
+include:
+  - assets/js/chart.min.js
+  - assets/js/calculator.js
+
+# Scripts personalizados
+scripts:
+  - src: "https://cdn.jsdelivr.net/npm/chart.js"
+  - src: "/assets/js/calculator.js"
+
+# Configuración de gráficos en tiempo real
+realtime_graphs:
+  - chart:
+      type: 'line'
+      data:
+        datasets:
+          - label: 'Precio de Bitcoin'
+            data: []
+            borderColor: 'rgb(75, 192, 192)'
+            tension: 0.1
+
+# Configuración de calculadora de precios
+price_calculator:
+  - name: 'Calculadora de Criptomonedas'
+    fields:
+      - name: 'Cantidad'
+        type: 'number'
+      - name: 'Precio Actual'
+        type: 'number'
+    result: 'Valor Total'
