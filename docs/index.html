@@ -1,83 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CriptoEduAr 🚀</title>
-    <!-- Enlaza Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Enlaza tu archivo CSS -->
+    <meta name="description" content="CriptoEduAr: Aprende sobre criptomonedas, blockchain y análisis de precios en tiempo real.">
+    <title>CriptoEduAr</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/logo.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
-<b<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CriptoEduAr Futurista</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+
 <body>
-    <!-- Encabezado futurista -->
     <header class="hero">
-        <img src="https://via.placeholder.com/800x300.png?text=Econom%C3%ADa+Futurista" alt="Economía Futurista" class="hero-image">
-        <h1>CriptoEduAr Futurista</h1>
+        <h1>CriptoEduAr</h1>
         <p>Tu guía educativa sobre criptomonedas y blockchain.</p>
-        <nav class="crypto-menu">
-            <label for="crypto-select">Selecciona una criptomoneda:</label>
-            <select id="crypto-select" onchange="updateChart()">
-                <option value="bitcoin">Bitcoin (BTC)</option>
-                <option value="ethereum">Ethereum (ETH)</option>
-                <option value="binancecoin">Binance Coin (BNB)</option>
-                <option value="cardano">Cardano (ADA)</option>
-                <option value="solana">Solana (SOL)</option>
-            </select>
-        </nav>
+        <button id="theme-toggle">🌞 Modo Claro / Oscuro 🌙</button>
     </header>
 
-    <!-- Introducción -->
-    <div class="intro">
-        <h1>CriptoEduAr Futurista</h1>
-        <p>Tu guía educativa sobre criptomonedas y blockchain.</p>
-        <p>Las criptomonedas han revolucionado el mundo financiero moderno. Son monedas digitales que utilizan la criptografía para asegurar las transacciones y controlar la creación de nuevas unidades. A diferencia de las monedas tradicionales, las criptomonedas operan de manera descentralizada, sin estar controladas por ninguna entidad central como bancos o gobiernos.</p>
-        <p>Ethereum es una de las plataformas de blockchain más populares y avanzadas, conocida por sus contratos inteligentes. Los contratos inteligentes son programas que se ejecutan en la blockchain de Ethereum y permiten la automatización de acuerdos y transacciones sin intermediarios. Esta tecnología ha abierto nuevas posibilidades en diversas industrias, incluyendo finanzas, bienes raíces, y logística.</p>
-        <p>La tecnología blockchain y las criptomonedas están transformando la economía global, ofreciendo mayor transparencia, seguridad y eficiencia. Únete a nosotros en este viaje hacia el futuro de la economía digital.</p>
-    </div>
-
-    <!-- Sección principal con gráfico destacado -->
     <main class="container">
+
+        <!-- Gráfico de Precios -->
         <section id="grafico">
-            <h2>Gráfico Futurista de Precios</h2>
-            <canvas id="priceChart" width="600" height="300"></canvas>
+            <h2>Gráfico de Precios</h2>
+            <canvas id="priceChart"></canvas>
         </section>
 
-        <!-- Calculadora de precios -->
+        <!-- Calculadora de Precios -->
         <section id="calculadora">
             <h2>Calculadora de Precios</h2>
             <form id="crypto-calculator">
                 <label for="crypto">Criptomoneda:</label>
-                <select id="crypto" name="crypto">
+                <select id="crypto">
                     <option value="bitcoin">Bitcoin (BTC)</option>
                     <option value="ethereum">Ethereum (ETH)</option>
                     <option value="binancecoin">Binance Coin (BNB)</option>
                     <option value="cardano">Cardano (ADA)</option>
                     <option value="solana">Solana (SOL)</option>
                 </select>
+
                 <label for="amount">Cantidad:</label>
-                <input type="number" id="amount" name="amount" placeholder="Ej: 1" required>
-                <button type="submit" class="btn">Calcular</button>
+                <input type="number" id="amount" placeholder="Ej: 1" min="0.01" step="0.01">
+
+                <label for="currency">Divisa:</label>
+                <select id="currency">
+                    <option value="usd">USD</option>
+                    <option value="eur">EUR</option>
+                    <option value="ars">ARS</option>
+                    <option value="mxn">MXN</option>
+                </select>
+
+                <button type="submit">Calcular</button>
             </form>
             <p id="result" class="result"></p>
         </section>
+
+        <!-- Portafolio Virtual -->
+        <section id="portfolio">
+            <h2>Mi Portafolio</h2>
+            <ul id="portfolio-list"></ul>
+        </section>
+
+        <!-- Noticias Cripto -->
+        <section id="news">
+            <h2>Noticias en Tiempo Real</h2>
+            <ul id="news-list"></ul>
+        </section>
+
+        <!-- Alerta de Precios -->
+        <section id="alert-section">
+            <h2>Alertas de Precio</h2>
+            <input type="number" id="price-alert" placeholder="Ej: 30000">
+            <button id="set-alert">Establecer Alerta</button>
+            <p id="alert-status"></p>
+        </section>
+
+        <!-- Análisis de Sentimiento -->
+        <section id="sentiment">
+            <h2>Análisis de Sentimiento</h2>
+            <p id="sentiment-result">Cargando datos...</p>
+        </section>
     </main>
 
-    <!-- Pie de página -->
-    <footer class="footer">
-        <p>&copy; 2025 CriptoEduAr. Todos los derechos reservados.</p>
-        <p>Hecho con ❤️ por Alejandro Arias</p>
+    <footer>
+        <p>&copy; 2025 CriptoEduAr. Hecho con ❤️ por Alejandro Arias.</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
+
 </html>
