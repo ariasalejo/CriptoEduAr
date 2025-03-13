@@ -9,13 +9,41 @@
     <!-- Enlaza tu archivo CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
+<b<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CriptoEduAr Futurista</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
 <body>
     <!-- Encabezado futurista -->
     <header class="hero">
         <img src="https://via.placeholder.com/800x300.png?text=Econom%C3%ADa+Futurista" alt="Economía Futurista" class="hero-image">
-        <h1>🚀   <h1>CriptoEduAr Futurista</h1>
+        <h1>CriptoEduAr Futurista</h1>
         <p>Tu guía educativa sobre criptomonedas y blockchain.</p>
+        <nav class="crypto-menu">
+            <label for="crypto-select">Selecciona una criptomoneda:</label>
+            <select id="crypto-select" onchange="updateChart()">
+                <option value="bitcoin">Bitcoin (BTC)</option>
+                <option value="ethereum">Ethereum (ETH)</option>
+                <option value="binancecoin">Binance Coin (BNB)</option>
+                <option value="cardano">Cardano (ADA)</option>
+                <option value="solana">Solana (SOL)</option>
+            </select>
+        </nav>
     </header>
+
+    <!-- Introducción -->
+    <div class="intro">
+        <h1>CriptoEduAr Futurista</h1>
+        <p>Tu guía educativa sobre criptomonedas y blockchain.</p>
+        <p>Las criptomonedas han revolucionado el mundo financiero moderno. Son monedas digitales que utilizan la criptografía para asegurar las transacciones y controlar la creación de nuevas unidades. A diferencia de las monedas tradicionales, las criptomonedas operan de manera descentralizada, sin estar controladas por ninguna entidad central como bancos o gobiernos.</p>
+        <p>Ethereum es una de las plataformas de blockchain más populares y avanzadas, conocida por sus contratos inteligentes. Los contratos inteligentes son programas que se ejecutan en la blockchain de Ethereum y permiten la automatización de acuerdos y transacciones sin intermediarios. Esta tecnología ha abierto nuevas posibilidades en diversas industrias, incluyendo finanzas, bienes raíces, y logística.</p>
+        <p>La tecnología blockchain y las criptomonedas están transformando la economía global, ofreciendo mayor transparencia, seguridad y eficiencia. Únete a nosotros en este viaje hacia el futuro de la economía digital.</p>
+    </div>
 
     <!-- Sección principal con gráfico destacado -->
     <main class="container">
@@ -36,10 +64,8 @@
                     <option value="cardano">Cardano (ADA)</option>
                     <option value="solana">Solana (SOL)</option>
                 </select>
-
                 <label for="amount">Cantidad:</label>
                 <input type="number" id="amount" name="amount" placeholder="Ej: 1" required>
-
                 <button type="submit" class="btn">Calcular</button>
             </form>
             <p id="result" class="result"></p>
@@ -48,11 +74,10 @@
 
     <!-- Pie de página -->
     <footer class="footer">
-        <p>&copy; 2023 CriptoEduAr. Todos los derechos reservados.</p>
+        <p>&copy; 2025 CriptoEduAr. Todos los derechos reservados.</p>
         <p>Hecho con ❤️ por Alejandro Arias</p>
     </footer>
 
-    <!-- Enlaza tu archivo JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>

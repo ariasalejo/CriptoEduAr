@@ -2,8 +2,9 @@
 :root {
     --primary-color: #2c3e50; /* Azul oscuro */
     --secondary-color: #3498db; /* Azul brillante */
-    --background-color: #f4f4f9; /* Fondo claro */
-    --text-color: #333; /* Texto negro */
+    --accent-color: #8e44ad; /* Morado Ethereum */
+    --background-color: #1e272e; /* Fondo oscuro futurista */
+    --text-color: #ecf0f1; /* Texto claro */
     --success-color: #27ae60; /* Verde exitoso */
 }
 
@@ -16,7 +17,7 @@
 
 /* Diseño general */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -32,12 +33,12 @@ header.hero {
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin: 0;
 }
 
 header p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-top: 5px;
 }
 
@@ -50,10 +51,10 @@ header .hero-image {
 
 /* Contenedor genérico */
 .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 20px auto;
     padding: 20px;
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -74,7 +75,7 @@ header .hero-image {
     max-width: 400px;
     margin: 20px auto;
     padding: 20px;
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -88,10 +89,12 @@ header .hero-image {
     border: 1px solid var(--primary-color);
     border-radius: 4px;
     font-size: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
 }
 
 #calculadora button.btn {
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -118,4 +121,17 @@ footer.footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* Nueva sección de introducción */
+.intro {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.8;
 }
