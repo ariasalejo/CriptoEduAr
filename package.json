@@ -14,7 +14,8 @@
     "axios": "^1.4.0",
     "chart.js": "^4.4.0",
     "glob": "^11.0.1",
-    "lru-cache": "^11.0.2"
+    "lru-cache": "^11.0.2",
+    "npm": "^11.2.0"
   },
   "devDependencies": {
     "gh-pages": "^5.0.0"
