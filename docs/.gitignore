@@ -1,0 +1,65 @@
+# === Archivos del sistema ===
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Linux
+*.swp
+*.swo
+
+# === IDEs y editores ===
+# VS Code
+.vscode/
+
+# JetBrains (WebStorm, PyCharm, etc.)
+.idea/
+
+# Sublime Text
+*.sublime-*
+
+# === Temporales y logs ===
+*.log
+*.tmp
+*.bak
+*.swp
+
+# === Carpetas y archivos generados automáticamente ===
+# Si usas Node.js (ej: React/Vue)
+node_modules/
+package-lock.json
+yarn.lock
+dist/
+build/
+
+# === Archivos sensibles ===
+# Variables de entorno (ej: claves API)
+.env
+.env.local
+
+# === Contenido multimedia (si NO quieres subirlo a GitHub) ===
+# Comenta estas líneas si SÍ quieres incluir imágenes/documentos
+/imagenes/
+/documentos/
+
+# === Archivos específicos de tu proyecto ===
+# Ignora archivos de prueba local
+test-results/
+coverage/
+
+# Ignora configuraciones innecesarias
+cobfig.yml
+
+# Ignora archivos temporales o de prueba
+wp-content/uploads/
+wp-config.php
+
+# === Archivos específicos de GitHub Pages ===
+# Ignora archivos que no son necesarios en GitHub Pages
+README.md
+_config.yml
+
+# === Archivos específicos de Termux ===
+# Ignora archivos de configuración de Termux
+/storage/emulated/0/Android/

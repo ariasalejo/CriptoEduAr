@@ -1,0 +1,24 @@
+{
+  "name": "criptoedu",
+  "version": "1.0.0",
+  "description": "Una plataforma educativa interactiva para aprender sobre criptomonedas, blockchain y finanzas descentralizadas.",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo 'Iniciando servidor local...'",
+    "build": "echo 'Proceso de construcción completado!'",
+    "deploy": "echo 'Desplegando sitio en GitHub Pages...'"
+  },
+  "author": "Tu Nombre <tu-email@example.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "chart.js": "^4.4.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ariasalejo/CriptoEduAr.git"
+  }
+}
