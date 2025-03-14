@@ -1,116 +1,112 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CriptoEduAr - Plataforma Interactiva</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CriptoEduAr - Plataforma Educativa en Criptomonedas</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Axios -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>CriptoEduAr - Plataforma Interactiva</h1>
-        <button id="dark-mode-toggle">Modo Oscuro</button>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CriptoEduPro</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#grafico">Gráfico</a></li>
+          <li class="nav-item"><a class="nav-link" href="#simulador">Simulador</a></li>
+          <li class="nav-item"><a class="nav-link" href="#noticias">Noticias</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-        <!-- Menú Desplegable -->
-        <div class="dropdown">
-            <button class="dropdown-button">Selecciona una Criptomoneda</button>
-            <div class="dropdown-content">
-                <a href="#" data-crypto="bitcoin">Bitcoin (BTC)</a>
-                <a href="#" data-crypto="ethereum">Ethereum (ETH)</a>
-                <a href="#" data-crypto="binancecoin">Binance Coin (BNB)</a>
-                <a href="#" data-crypto="cardano">Cardano (ADA)</a>
-                <a href="#" data-crypto="solana">Solana (SOL)</a>
+  <!-- Hero Section -->
+  <section id="inicio" class="hero-section d-flex align-items-center justify-content-center text-white py-5">
+    <div class="container text-center">
+      <h1 class="display-3 fw-bold">Bienvenido a CriptoEduPro</h1>
+      <p class="lead">Tu plataforma educativa en criptomonedas, blockchain y finanzas descentralizadas.</p>
+      <a href="#grafico" class="btn btn-primary btn-lg">Explorar ahora</a>
+    </div>
+  </section>
+
+  <!-- Gráfico de precios -->
+  <section id="grafico" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Gráfico de Precios (Bitcoin)</h2>
+      <canvas id="priceChart" width="400" height="200"></canvas>
+    </div>
+  </section>
+
+  <!-- Simulador de portafolio -->
+  <section id="simulador" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Simulador de Portafolio</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <input type="number" id="investmentInput" class="form-control mb-3" placeholder="Inversión inicial (USD)">
+          <button onclick="simulatePortfolio()" class="btn btn-primary w-100">Calcular</button>
+          <p id="portfolioResult" class="mt-3 text-center"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Noticias -->
+  <section id="noticias" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Noticias sobre Criptomonedas</h2>
+      <div id="newsContainer" class="row"></div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="py-5 bg-dark text-white">
+    <div class="container">
+      <h2 class="text-center mb-4">Contáctenos</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form id="contactForm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="name" required>
             </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Mensaje</label>
+              <textarea class="form-control" id="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-light w-100">Enviar Mensaje</button>
+          </form>
         </div>
-    </header>
+      </div>
+    </div>
+  </section>
 
-    <main class="container">
-        <!-- Información de la Criptomoneda Seleccionada -->
-        <section id="crypto-info">
-            <h2>Información de la Criptomoneda</h2>
-            <p id="crypto-details">Selecciona una criptomoneda para ver su información.</p>
-        </section>
+  <!-- Footer -->
+  <footer class="bg-secondary text-white text-center py-3">
+    <p>&copy; 2025 CriptoEduAr. Todos los derechos reservados.</p>
+  </footer>
 
-        <!-- Gráfico de Precios -->
-        <section>
-            <h2>Gráfico de Precios</h2>
-            <canvas id="cryptoChart"></canvas>
-        </section>
-
-        <!-- Simulador de Portafolio -->
-        <section>
-            <h2>Simulador de Portafolio</h2>
-            <form id="add-crypto-form">
-                <select id="crypto">
-                    <option value="bitcoin">Bitcoin (BTC)</option>
-                    <option value="ethereum">Ethereum (ETH)</option>
-                    <option value="binancecoin">Binance Coin (BNB)</option>
-                </select>
-                <input type="number" id="amount" placeholder="Cantidad" min="0.01" step="0.01" required>
-                <button type="submit">Agregar</button>
-            </form>
-            <ul id="portfolio-list"></ul>
-            <p id="total-value">Valor Total: $0.00 USD</p>
-        </section>
-
-        <!-- Calculadora de Precios -->
-        <section>
-            <h2>Calculadora de Precios</h2>
-            <form id="crypto-calculator">
-                <label for="crypto-calc">Criptomoneda:</label>
-                <select id="crypto-calc">
-                    <option value="bitcoin">Bitcoin (BTC)</option>
-                    <option value="ethereum">Ethereum (ETH)</option>
-                    <option value="binancecoin">Binance Coin (BNB)</option>
-                </select>
-                <input type="number" id="amount-calc" placeholder="Cantidad" min="0.01" step="0.01" required>
-                <button type="submit">Calcular</button>
-                <p id="result"></p>
-            </form>
-        </section>
-
-        <!-- Conversor de Criptomonedas -->
-        <section>
-            <h2>Conversor de Criptomonedas</h2>
-            <form id="convert-form">
-                <input type="number" id="amount-convert" placeholder="Cantidad" required>
-                <select id="from-crypto">
-                    <option value="bitcoin">Bitcoin (BTC)</option>
-                    <option value="ethereum">Ethereum (ETH)</option>
-                </select>
-                <select id="to-crypto">
-                    <option value="ethereum">Ethereum (ETH)</option>
-                    <option value="bitcoin">Bitcoin (BTC)</option>
-                </select>
-                <button type="submit">Convertir</button>
-                <p id="convert-result"></p>
-            </form>
-        </section>
-
-        <!-- Noticias Cripto -->
-        <section id="noticias">
-            <h2>Últimas Noticias Cripto</h2>
-            <div id="news-feed"></div>
-        </section>
-
-        <!-- Recursos Educativos -->
-        <section id="recursos">
-            <h2>Recursos Educativos</h2>
-            <ul>
-                <li><a href="documentos/guia-basica.pdf" target="_blank">Guía Básica de Blockchain</a></li>
-                <li><a href="https://youtu.be/ejemplo" target="_blank">Video: ¿Qué es Bitcoin?</a></li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 CriptoEduAr. Todos los derechos reservados.</p>
-        <div class="social-links">
-            <a href="https://twitter.com/tu-usuario" target="_blank">Twitter</a>
-            <a href="https://github.com/ariasalejo" target="_blank">GitHub</a>
-        </div>
-    </footer>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

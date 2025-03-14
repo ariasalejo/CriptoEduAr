@@ -1,139 +1,75 @@
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
-    transition: background-color 0.3s, color 0.3s;
+// Gráfico de precios
+const ctx = document.getElementById('priceChart').getContext('2d');
+const priceChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+    datasets: [{
+      label: 'Precio de Bitcoin (USD)',
+      data: [40000, 42000, 41000, 43000, 44000],
+      borderColor: '#007bff',
+      borderWidth: 2,
+      fill: false,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: true },
+    },
+  },
+});
+
+// Simulador de portafolio
+function simulatePortfolio() {
+  const investment = parseFloat(document.getElementById('investmentInput').value);
+  if (isNaN(investment) || investment <= 0) {
+    alert('Por favor, ingresa una inversión válida.');
+    return;
+  }
+  const result = investment * 1.5; // Ejemplo: Supongamos un rendimiento del 50%
+  document.getElementById('portfolioResult').textContent = `Tu portafolio vale: $${result.toFixed(2)} USD`;
 }
 
-header {
-    background-color: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    position: relative;
+// Noticias
+async function fetchNews() {
+  const apiKey = 'TU_API_KEY_DE_NEWSAPI'; // Reemplaza con tu API key
+  const url = `https://newsapi.org/v2/everything?q=cryptocurrency&apiKey=${apiKey}`;
+  try {
+    const response = await axios.get(url);
+    const articles = response.data.articles.slice(0, 6); // Mostrar solo 6 noticias
+    const newsContainer = document.getElementById('newsContainer');
+    newsContainer.innerHTML = '';
+    articles.forEach(article => {
+      const articleDiv = document.createElement('div');
+      articleDiv.innerHTML = `
+        <h5>${article.title}</h5>
+        <p>${article.description}</p>
+        <a href="${article.url}" target="_blank" class="btn btn-sm btn-primary">Leer más</a>
+      `;
+      newsContainer.appendChild(articleDiv);
+    });
+  } catch (error) {
+    console.error('Error al obtener noticias:', error);
+    alert('No se pudieron cargar las noticias.');
+  }
 }
 
-#dark-mode-toggle {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    border-radius: 4px;
-}
+// Cargar noticias al cargar la página
+fetchNews();
 
-/* Menú Desplegable */
-.dropdown {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
+// Validación del formulario de contacto
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
 
-.dropdown-button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 4px;
-}
+  if (!name || !email || !message) {
+    alert('Por favor, completa todos los campos.');
+    return;
+  }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    right: 0;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Modo Oscuro */
-body.dark-mode {
-    background-color: #1a1a1a;
-    color: #e0e0e0;
-}
-
-body.dark-mode header {
-    background-color: #2c3e50;
-}
-
-body.dark-mode .container {
-    background-color: #2d2d2d;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #2c3e50;
-    color: white;
-}
-
-.social-links a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-/* Contenido principal */
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
-h1, h2 {
-    text-align: center;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-button {
-    padding: 10px;
-    background-color: #2c3e50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #34495e;
-}
-
-#total-value {
-    text-align: center;
-    font-size: 1.2em;
-    color: #27ae60;
-}
+  alert('¡Mensaje enviado con éxito!');
+  this.reset();
+});
