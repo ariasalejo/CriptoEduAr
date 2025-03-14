@@ -1,0 +1,31 @@
+"scripts": {
+  "start": "echo 'Iniciando servidor local...'",
+  "build": "echo 'Proceso de construcción completado!'",
+  "deploy": "echo 'Desplegando sitio en GitHub Pages...'"
+}{
+  "name": "criptoeduar",
+  "version": "1.0.0",
+  "description": "![Banner CriptoEduAr](https://via.placeholder.com/800x200.png?text=CriptoEduAr+Educación+en+Criptomonedas)   *(Reemplaza este banner con un diseño personalizado en Canva o Figma)*",
+  "main": "script.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ariasalejo/CriptoEduAr.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ariasalejo/CriptoEduAr/issues"
+  },
+  "homepage": "https://github.com/ariasalejo/CriptoEduAr#readme",
+  "dependencies": {
+    "axios": "^1.8.3",
+    "chart.js": "^4.4.8"
+  }
+}
