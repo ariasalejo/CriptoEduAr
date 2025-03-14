@@ -1,75 +1,57 @@
-// Gráfico de precios
-const ctx = document.getElementById('priceChart').getContext('2d');
-const priceChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
-    datasets: [{
-      label: 'Precio de Bitcoin (USD)',
-      data: [40000, 42000, 41000, 43000, 44000],
-      borderColor: '#007bff',
-      borderWidth: 2,
-      fill: false,
-    }]
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: { display: true },
-    },
-  },
+const API_URL = "https://api.coingecko.com/api/v3";
+const NEWS_API_URL = `https://newsapi.org/v2/everything?q=criptomonedas&language=es&apiKey=45b326355e6646eb91a52c48776d369b`;
+
+const ctx = document.getElementById('cryptoChart').getContext('2d');
+let cryptoChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'Precio en USD',
+            data: [],
+            borderColor: '#3498db',
+            backgroundColor: 'rgba(52, 152, 219, 0.2)',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.4
+        }]
+    }
 });
 
-// Simulador de portafolio
-function simulatePortfolio() {
-  const investment = parseFloat(document.getElementById('investmentInput').value);
-  if (isNaN(investment) || investment <= 0) {
-    alert('Por favor, ingresa una inversión válida.');
-    return;
-  }
-  const result = investment * 1.5; // Ejemplo: Supongamos un rendimiento del 50%
-  document.getElementById('portfolioResult').textContent = `Tu portafolio vale: $${result.toFixed(2)} USD`;
+async function mostrarInfo(crypto) {
+    const response = await fetch(`${API_URL}/coins/${crypto}`);
+    const data = await response.json();
+    document.getElementById('crypto-info').innerHTML = `
+        <h3>${data.name}</h3>
+        <p>Precio actual: $${data.market_data.current_price.usd} USD</p>
+        <p>Capitalización de mercado: $${data.market_data.market_cap.usd} USD</p>
+        <p>${data.description.en.substring(0, 300)}...</p>
+    `;
+    actualizarGrafico(crypto);
 }
 
-// Noticias
-async function fetchNews() {
-  const apiKey = 'TU_API_KEY_DE_NEWSAPI'; // Reemplaza con tu API key
-  const url = `https://newsapi.org/v2/everything?q=cryptocurrency&apiKey=${apiKey}`;
-  try {
-    const response = await axios.get(url);
-    const articles = response.data.articles.slice(0, 6); // Mostrar solo 6 noticias
-    const newsContainer = document.getElementById('newsContainer');
-    newsContainer.innerHTML = '';
-    articles.forEach(article => {
-      const articleDiv = document.createElement('div');
-      articleDiv.innerHTML = `
-        <h5>${article.title}</h5>
-        <p>${article.description}</p>
-        <a href="${article.url}" target="_blank" class="btn btn-sm btn-primary">Leer más</a>
-      `;
-      newsContainer.appendChild(articleDiv);
+async function actualizarGrafico(crypto) {
+    const response = await fetch(`${API_URL}/coins/${crypto}/market_chart?vs_currency=usd&days=7`);
+    const data = await response.json();
+    const prices = data.prices.map(entry => entry[1]);
+    const dates = data.prices.map(entry => new Date(entry[0]).toLocaleDateString());
+
+    cryptoChart.data.labels = dates;
+    cryptoChart.data.datasets[0].data = prices;
+    cryptoChart.update();
+}
+
+async function cargarNoticias() {
+    const response = await fetch(NEWS_API_URL);
+    const data = await response.json();
+    const newsList = document.getElementById('news-list');
+    newsList.innerHTML = '';
+
+    data.articles.forEach(article => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="${article.url}" target="_blank">${article.title}</a>`;
+        newsList.appendChild(li);
     });
-  } catch (error) {
-    console.error('Error al obtener noticias:', error);
-    alert('No se pudieron cargar las noticias.');
-  }
 }
 
-// Cargar noticias al cargar la página
-fetchNews();
-
-// Validación del formulario de contacto
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
-
-  if (!name || !email || !message) {
-    alert('Por favor, completa todos los campos.');
-    return;
-  }
-
-  alert('¡Mensaje enviado con éxito!');
-  this.reset();
-});
+window.onload = cargarNoticias;
