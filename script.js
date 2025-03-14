@@ -224,7 +224,7 @@ document.getElementById('convert-form').addEventListener('submit', async (e) => 
 // Cargar noticias cripto
 async function loadNews() {
     try {
-        const response = await fetch('https://newsapi.org/v2/everything?q=cryptocurrency&apiKey=TU_API_KEY');
+           const response = await fetch('https://newsapi.org/v2/everything?q=cryptocurrency&apiKey=45b326355e6646eb91a52c48776d369b');
         const data = await response.json();
 
         const newsFeed = document.getElementById('news-feed');
