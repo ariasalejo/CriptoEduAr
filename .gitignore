@@ -62,4 +62,9 @@ _config.yml
 
 # === Archivos específicos de Termux ===
 # Ignora archivos de configuración de Termux
+ HEAD
 /storage/emulated/0/Android/
+
+.termux/
+node_modules/
+ d051e21 (Mover proyecto a /data/data/com.termux/files/home y corregir problemas de instalación de dependencias)

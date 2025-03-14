@@ -1,31 +1,26 @@
-"scripts": {
-  "start": "echo 'Iniciando servidor local...'",
-  "build": "echo 'Proceso de construcción completado!'",
-  "deploy": "echo 'Desplegando sitio en GitHub Pages...'"
-}{
-  "name": "criptoeduar",
+{
+  "name": "criptoedu",
   "version": "1.0.0",
-  "description": "![Banner CriptoEduAr](https://via.placeholder.com/800x200.png?text=CriptoEduAr+Educación+en+Criptomonedas)   *(Reemplaza este banner con un diseño personalizado en Canva o Figma)*",
-  "main": "script.js",
-  "directories": {
-    "doc": "docs"
-  },
+  "description": "Una plataforma educativa interactiva para aprender sobre criptomonedas, blockchain y finanzas descentralizadas.",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "echo 'Iniciando servidor local...'",
+    "build": "echo 'Proceso de construcción completado!'",
+    "deploy": "echo 'Desplegando sitio en GitHub Pages...'"
+  },
+  "author": "Tu Nombre <tu-email@example.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "chart.js": "^4.4.0",
+    "glob": "^11.0.1",
+    "lru-cache": "^11.0.2"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ariasalejo/CriptoEduAr.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ariasalejo/CriptoEduAr/issues"
-  },
-  "homepage": "https://github.com/ariasalejo/CriptoEduAr#readme",
-  "dependencies": {
-    "axios": "^1.8.3",
-    "chart.js": "^4.4.8"
+    "url": "https://github.com/ariasalejo/CriptoEduAr.git"
   }
 }
