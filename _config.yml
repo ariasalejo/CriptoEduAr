@@ -1,62 +1,50 @@
 # Configuración básica del sitio
-title: CriptoEduAr 🌌
-description: "Tu guía educativa sobre criptomonedas y blockchain."
-baseurl: "" # Deja vacío si estás usando /root
-url: "https://ariasalejo.github.io" # URL base del sitio
+title: CriptoEduAr - Plataforma Interactiva
+description: Una plataforma educativa interactiva para aprender sobre criptomonedas, blockchain y finanzas descentralizadas.
+baseurl: "" # Ruta base del sitio (deja esto en blanco si no usas subdirectorios)
+url: "https://ariasalejo.github.io/CriptoEduAr" # URL del sitio en GitHub Pages
 
-# Tema
-theme: minima # Tema predeterminado de Jekyll
+# Tema de Jekyll (opcional)
+theme: minima
 
-# Zona horaria
-timezone: America/Bogota
-
-# Autor
-author:
-  name: Alejandro Arias
-  email: ariasalejolondo@gmail.com
-  social:
-    twitter: https://twitter.com/tu-usuario # Reemplaza con tu usuario de Twitter
-    github: https://github.com/ariasalejo # Enlace a tu perfil de GitHub
-
-# Plugins
+# Configuración de GitHub Pages
 plugins:
-  - jekyll-feed # Genera un feed RSS para tus posts
-  - jekyll-seo-tag # Mejora el SEO del sitio
+  - jekyll-feed # Genera un feed RSS para tu sitio
 
-# Configuración adicional para gráficos en tiempo real y calculadora de precios
+# Metadatos adicionales
+author:
+  name: Tu Nombre
+  email: tu-email@example.com
+  twitter: https://twitter.com/tu-usuario
+  github: https://github.com/ariasalejo
+
+# Opciones de navegación
+navigation:
+  - title: Inicio
+    url: /
+  - title: Simulador de Portafolio
+    url: /#simulador
+  - title: Calculadora de Precios
+    url: /#calculadora
+  - title: Conversor de Criptomonedas
+    url: /#conversor
+  - title: Noticias Cripto
+    url: /#noticias
+  - title: Recursos Educativos
+    url: /#recursos
+
+# Redes sociales
+social_links:
+  twitter: https://twitter.com/tu-usuario
+  github: https://github.com/ariasalejo
+  youtube: https://www.youtube.com/tu-canal
+
+# Configuración de NewsAPI
+newsapi:
+  api_key: 45b326355e6646eb91a52c48776d369b
+
+# Ajustes de desarrollo
 markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter_opts:
-    default_lang: 'plaintext'
-
-# Incluir scripts adicionales
-include:
-  - assets/js/chart.min.js
-  - assets/js/calculator.js
-
-# Scripts personalizados
-scripts:
-  - src: "https://cdn.jsdelivr.net/npm/chart.js"
-  - src: "/assets/js/calculator.js"
-
-# Configuración de gráficos en tiempo real
-realtime_graphs:
-  - chart:
-      type: 'line'
-      data:
-        datasets:
-          - label: 'Precio de Bitcoin'
-            data: []
-            borderColor: 'rgb(75, 192, 192)'
-            tension: 0.1
-
-# Configuración de calculadora de precios
-price_calculator:
-  - name: 'Calculadora de Criptomonedas'
-    fields:
-      - name: 'Cantidad'
-        type: 'number'
-      - name: 'Precio Actual'
-        type: 'number'
-    result: 'Valor Total'
+exclude:
+  - README.md
+  - cobfig.yml
