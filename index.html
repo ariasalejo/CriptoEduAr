@@ -1,116 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CriptoEduAr - Plataforma Interactiva</title>
+    <meta name="description" content="CriptoEduAr: Aprende sobre criptomonedas, blockchain y análisis de precios en tiempo real.">
+    <title>CriptoEduAr</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" href="assets/logo.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <script src="script.js" defer></script>
 </head>
-<body>
-    <header>
-        <h1>CriptoEduAr - Plataforma Interactiva</h1>
-        <button id="dark-mode-toggle">Modo Oscuro</button>
 
-        <!-- Menú Desplegable -->
-        <div class="dropdown">
-            <button class="dropdown-button">Selecciona una Criptomoneda</button>
-            <div class="dropdown-content">
-                <a href="#" data-crypto="bitcoin">Bitcoin (BTC)</a>
-                <a href="#" data-crypto="ethereum">Ethereum (ETH)</a>
-                <a href="#" data-crypto="binancecoin">Binance Coin (BNB)</a>
-                <a href="#" data-crypto="cardano">Cardano (ADA)</a>
-                <a href="#" data-crypto="solana">Solana (SOL)</a>
-            </div>
-        </div>
+<body>
+    <header class="hero">
+        <h1>CriptoEduAr</h1>
+        <p>Tu guía educativa sobre criptomonedas y blockchain.</p>
+        <button id="theme-toggle">🌞 Modo Claro / Oscuro 🌙</button>
     </header>
 
     <main class="container">
-        <!-- Información de la Criptomoneda Seleccionada -->
-        <section id="crypto-info">
-            <h2>Información de la Criptomoneda</h2>
-            <p id="crypto-details">Selecciona una criptomoneda para ver su información.</p>
-        </section>
 
         <!-- Gráfico de Precios -->
-        <section>
+        <section id="grafico">
             <h2>Gráfico de Precios</h2>
-            <canvas id="cryptoChart"></canvas>
+            <canvas id="priceChart"></canvas>
         </section>
 
-        <!-- Simulador de Portafolio -->
-        <section>
-            <h2>Simulador de Portafolio</h2>
-            <form id="add-crypto-form">
+        <!-- Calculadora de Precios -->
+        <section id="calculadora">
+            <h2>Calculadora de Precios</h2>
+            <form id="crypto-calculator">
+                <label for="crypto">Criptomoneda:</label>
                 <select id="crypto">
                     <option value="bitcoin">Bitcoin (BTC)</option>
                     <option value="ethereum">Ethereum (ETH)</option>
                     <option value="binancecoin">Binance Coin (BNB)</option>
+                    <option value="cardano">Cardano (ADA)</option>
+                    <option value="solana">Solana (SOL)</option>
                 </select>
-                <input type="number" id="amount" placeholder="Cantidad" min="0.01" step="0.01" required>
-                <button type="submit">Agregar</button>
-            </form>
-            <ul id="portfolio-list"></ul>
-            <p id="total-value">Valor Total: $0.00 USD</p>
-        </section>
 
-        <!-- Calculadora de Precios -->
-        <section>
-            <h2>Calculadora de Precios</h2>
-            <form id="crypto-calculator">
-                <label for="crypto-calc">Criptomoneda:</label>
-                <select id="crypto-calc">
-                    <option value="bitcoin">Bitcoin (BTC)</option>
-                    <option value="ethereum">Ethereum (ETH)</option>
-                    <option value="binancecoin">Binance Coin (BNB)</option>
+                <label for="amount">Cantidad:</label>
+                <input type="number" id="amount" placeholder="Ej: 1" min="0.01" step="0.01">
+
+                <label for="currency">Divisa:</label>
+                <select id="currency">
+                    <option value="usd">USD</option>
+                    <option value="eur">EUR</option>
+                    <option value="ars">ARS</option>
+                    <option value="mxn">MXN</option>
                 </select>
-                <input type="number" id="amount-calc" placeholder="Cantidad" min="0.01" step="0.01" required>
+
                 <button type="submit">Calcular</button>
-                <p id="result"></p>
             </form>
+            <p id="result" class="result"></p>
         </section>
 
-        <!-- Conversor de Criptomonedas -->
-        <section>
-            <h2>Conversor de Criptomonedas</h2>
-            <form id="convert-form">
-                <input type="number" id="amount-convert" placeholder="Cantidad" required>
-                <select id="from-crypto">
-                    <option value="bitcoin">Bitcoin (BTC)</option>
-                    <option value="ethereum">Ethereum (ETH)</option>
-                </select>
-                <select id="to-crypto">
-                    <option value="ethereum">Ethereum (ETH)</option>
-                    <option value="bitcoin">Bitcoin (BTC)</option>
-                </select>
-                <button type="submit">Convertir</button>
-                <p id="convert-result"></p>
-            </form>
+        <!-- Portafolio Virtual -->
+        <section id="portfolio">
+            <h2>Mi Portafolio</h2>
+            <ul id="portfolio-list"></ul>
         </section>
 
         <!-- Noticias Cripto -->
-        <section id="noticias">
-            <h2>Últimas Noticias Cripto</h2>
-            <div id="news-feed"></div>
+        <section id="news">
+            <h2>Noticias en Tiempo Real</h2>
+            <ul id="news-list"></ul>
         </section>
 
-        <!-- Recursos Educativos -->
-        <section id="recursos">
-            <h2>Recursos Educativos</h2>
-            <ul>
-                <li><a href="documentos/guia-basica.pdf" target="_blank">Guía Básica de Blockchain</a></li>
-                <li><a href="https://youtu.be/ejemplo" target="_blank">Video: ¿Qué es Bitcoin?</a></li>
-            </ul>
+        <!-- Alerta de Precios -->
+        <section id="alert-section">
+            <h2>Alertas de Precio</h2>
+            <input type="number" id="price-alert" placeholder="Ej: 30000">
+            <button id="set-alert">Establecer Alerta</button>
+            <p id="alert-status"></p>
+        </section>
+
+        <!-- Análisis de Sentimiento -->
+        <section id="sentiment">
+            <h2>Análisis de Sentimiento</h2>
+            <p id="sentiment-result">Cargando datos...</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 CriptoEduAr. Todos los derechos reservados.</p>
-        <div class="social-links">
-            <a href="https://twitter.com/tu-usuario" target="_blank">Twitter</a>
-            <a href="https://github.com/ariasalejo" target="_blank">GitHub</a>
-        </div>
+        <p>&copy; 2025 CriptoEduAr. Hecho con ❤️ por Alejandro Arias.</p>
     </footer>
 </body>
+
 </html>
