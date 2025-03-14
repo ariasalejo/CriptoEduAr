@@ -1,8 +1,9 @@
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
+
+/* Reset básico */
+* {
     margin: 0;
     padding: 0;
+<<<<<<< HEAD
     background-color: #f4f4f9;
     color: #333;
     transition: background-color 0.3s, color 0.3s;
@@ -100,6 +101,48 @@ footer {
 }
 
 /* Contenido principal */
+=======
+    box-sizing: border-box;
+}
+
+/* Variables de colores */
+:root {
+    --primary-color: #2c3e50; /* Azul oscuro */
+    --secondary-color: #3498db; /* Azul claro */
+    --background-color: #f4f4f9; /* Fondo claro */
+    --text-color: #333; /* Texto negro */
+    --success-color: #27ae60; /* Verde exitoso */
+}
+
+/* Diseño general */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Encabezado impactante */
+header.hero {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+header p {
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+/* Contenedor genérico */
+>>>>>>> 3c23b30 (Añadir gráfico de precios, simulador de portafolio y calculadora de precios)
 .container {
     max-width: 800px;
     margin: 20px auto;
@@ -109,31 +152,78 @@ footer {
     padding: 20px;
 }
 
+<<<<<<< HEAD
 h1, h2 {
     text-align: center;
 }
 
 form {
+=======
+/* Calculadora de precios */
+#calculadora form {
+>>>>>>> 3c23b30 (Añadir gráfico de precios, simulador de portafolio y calculadora de precios)
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
+<<<<<<< HEAD
 button {
     padding: 10px;
     background-color: #2c3e50;
+=======
+#calculadora label {
+    font-weight: bold;
+}
+
+#calculadora input, #calculadora select, #calculadora button {
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+#calculadora button.btn {
+    background-color: var(--primary-color);
+>>>>>>> 3c23b30 (Añadir gráfico de precios, simulador de portafolio y calculadora de precios)
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #34495e;
+#calculadora button.btn:hover {
+    background-color: var(--secondary-color);
 }
 
+<<<<<<< HEAD
 #total-value {
     text-align: center;
     font-size: 1.2em;
     color: #27ae60;
+=======
+.result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+/* Gráfico interactivo */
+#grafico canvas {
+    width: 100%;
+    height: auto;
+>>>>>>> 3c23b30 (Añadir gráfico de precios, simulador de portafolio y calculadora de precios)
+}
+
+/* Pie de página profesional */
+footer.footer {
+    text-align: center;
+    padding: 10px;
+    background: var(--primary-color);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
