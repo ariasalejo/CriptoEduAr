@@ -1,31 +1,33 @@
-name: Deploy to GitHub Pages
+name: Despliegue en GitHub Pages
 
 on:
   push:
     branches:
-      - master
+      - main # Cambia a "master" si usas esa rama
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout código
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Configurar Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          node-version: '16'
+          ruby-version: 3.0.0 # Ajusta la versión de Ruby si es necesario
 
-      - name: Install dependencies
-        run: npm install
+      - name: Instalar dependencias
+        run: |
+          gem install bundler
+          bundle install
 
-      - name: Build project
-        run: npm run build
+      - name: Construir el sitio
+        run: bundle exec jekyll build
 
-      - name: Deploy to GitHub Pages
+      - name: Desplegar en GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          publish_dir: ./_site
