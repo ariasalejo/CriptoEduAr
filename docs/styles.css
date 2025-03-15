@@ -1,63 +1,22 @@
-/* Animaciones */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Estilos generales */
+:root {
+    --primary-color: #007BFF;
+    --secondary-color: #6c757d;
+    --background-color: #f4f4f9;
+    --text-color: #333;
+    --accent-color: #ffc107;
 }
 
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f9f9f9;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.hero-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
-  height: 100vh;
-}
-
-#priceChart {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-#portfolioResult, #priceResult {
-  font-size: 1.2rem;
-  color: #007bff;
-}
-
-#newsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-#newsContainer div {
-  background-color: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  flex: 1 1 calc(33.333% - 1rem);
-  transition: transform 0.3s ease-in-out;
-}
-
-#newsContainer div:hover {
-  transform: translateY(-10px);
-}
-
-footer {
-  background-color: #333;
-}
-/* Estilo general */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
-/* Encabezado */
 header {
-    background-color: #222;
+    background-color: var(--primary-color);
     color: white;
     padding: 10px 20px;
     display: flex;
@@ -66,68 +25,114 @@ header {
 }
 
 .logo img {
-    width: 50px;
-    margin-right: 10px;
+    height: 50px;
 }
 
 nav ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    gap: 20px;
 }
 
-nav a {
-    text-decoration: none;
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
     color: white;
-    padding: 8px 15px;
-    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-nav a:hover {
-    background-color: #444;
+/* Banner */
+.banner {
+    background: linear-gradient(135deg, #007BFF, #00BFFF);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 160px;
-    z-index: 1;
+.banner h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
 }
 
-.dropdown:hover .dropdown-content {
+.banner p {
+    font-size: 1.5em;
+}
+
+.banner .btn {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+/* Carrusel */
+.carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 100%;
     display: block;
 }
 
-/* Secciones */
-section {
-    margin: 20px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.banner {
-    text-align: center;
-    background-color: #007bff;
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    padding: 50px 20px;
-    border-radius: 15px;
-}
-
-.chart {
-    max-width: 90%;
-    margin: auto;
-}
-
-#portfolio-list li {
-    margin-bottom: 10px;
-}
-
-footer {
-    text-align: center;
+    border: none;
     padding: 10px;
-    background-color: #222;
+    cursor: pointer;
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+/* Testimonios */
+.testimonials {
+    padding: 20px;
+    text-align: center;
+}
+
+.testimonial-card {
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
     color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
 }
