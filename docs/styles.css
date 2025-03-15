@@ -45,6 +45,29 @@ nav ul li a {
     font-weight: bold;
 }
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--background-color);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 /* Banner */
 .banner {
     background: linear-gradient(135deg, #007BFF, #00BFFF);
@@ -72,46 +95,31 @@ nav ul li a {
     display: inline-block;
 }
 
-/* Carrusel */
-.carousel {
-    position: relative;
-    max-width: 800px;
-    margin: 20px auto;
-    overflow: hidden;
+/* Portafolio */
+.portfolio {
+    padding: 20px;
+    text-align: center;
 }
 
-.carousel-inner {
+.portfolio-grid {
     display: flex;
-    transition: transform 0.5s ease;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.carousel-item {
-    min-width: 100%;
-    box-sizing: border-box;
+.crypto-card {
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
 }
 
-.carousel-item img {
-    width: 100%;
-    display: block;
-}
-
-.carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.carousel-control.prev {
-    left: 10px;
-}
-
-.carousel-control.next {
-    right: 10px;
+/* Gráfico */
+.chart {
+    padding: 20px;
+    text-align: center;
 }
 
 /* Testimonios */
