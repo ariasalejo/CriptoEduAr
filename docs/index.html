@@ -1,108 +1,179 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CriptoEduAr - Plataforma Interactiva</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CriptoEduAr - Educación en Criptomonedas</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
-    <header>
-        <div class="logo">
-            <img src="https://via.placeholder.com/150x50?text=Logo+CriptoEduAr" alt="Logo CriptoEduAr">
-            <h1>CriptoEduAr</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#noticias">Noticias</a></li>
-                <li><a href="#portafolio">Portafolio</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Criptomonedas <i class="fas fa-coins"></i></a>
-                    <div class="dropdown-content">
-                        <a href="#bitcoin" onclick="mostrarInfo('bitcoin')">Bitcoin (BTC)</a>
-                        <a href="#ethereum" onclick="mostrarInfo('ethereum')">Ethereum (ETH)</a>
-                        <a href="#binancecoin" onclick="mostrarInfo('binancecoin')">Binance Coin (BNB)</a>
-                        <a href="#cardano" onclick="mostrarInfo('cardano')">Cardano (ADA)</a>
-                        <a href="#solana" onclick="mostrarInfo('solana')">Solana (SOL)</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <img src="images/logo-criptoeduar.png" alt="Logo CriptoEduAr" class="logo">
+    <h1>CriptoEduAr</h1>
+    <p>Educación + Blockchain + Inteligencia Artificial</p>
+  </header>
 
-    <main>
-        <!-- Banner -->
-        <section id="inicio" class="banner">
-            <h2>Bienvenido a CriptoEduAr</h2>
-            <p>Conoce el mercado cripto en tiempo real y optimiza tus inversiones.</p>
-            <a href="#portafolio" class="btn">Explorar <i class="fas fa-arrow-right"></i></a>
-        </section>
+  <nav>
+    <ul>
+      <li><a href="#bitcoin">Bitcoin</a></li>
+      <li><a href="#ethereum">Ethereum</a></li>
+      <li><a href="#solana">Solana</a></li>
+      <li><a href="#cardano">Cardano</a></li>
+      <li><a href="#calculadora">Calculadora</a></li>
+    </ul>
+  </nav>
 
-        <!-- Información de criptomonedas -->
-        <section class="info" id="crypto-info">
-            <h2>Información de Criptomonedas</h2>
-            <p>Selecciona una criptomoneda para ver sus datos actualizados.</p>
-        </section>
+  <main>
+    <!-- Bitcoin -->
+    <section id="bitcoin" class="cripto-section">
+      <h2>Bitcoin (BTC)</h2>
+      <img src="images/Bitcoin/bitcoin-logo.jpg" alt="Bitcoin" class="cripto-img">
+      <div class="tools">
+        <div class="price" id="btcPrice"></div>
+        <button onclick="showCalculator('BTC')">Calcular BTC</button>
+        <button onclick="showPortfolio('BTC')">Simular Inversión</button>
+      </div>
+      <canvas id="btcChart"></canvas>
+    </section>
 
-        <!-- Noticias -->
-        <section id="noticias" class="news">
-            <h2>Noticias en Tiempo Real</h2>
-            <ul id="news-list"></ul>
-        </section>
+    <!-- Ethereum -->
+    <section id="ethereum" class="cripto-section">
+      <h2>Ethereum (ETH)</h2>
+      <img src="images/Ethereum/ethereum-logo.jpg" alt="Ethereum" class="cripto-img">
+      <div class="tools">
+        <div class="price" id="ethPrice"></div>
+        <button onclick="showCalculator('ETH')">Calcular ETH</button>
+        <button onclick="showPortfolio('ETH')">Simular Inversión</button>
+      </div>
+      <canvas id="ethChart"></canvas>
+    </section>
 
-        <!-- Portafolio -->
-        <section id="portafolio" class="portfolio">
-            <h2>Mi Portafolio</h2>
-            <p>Total invertido: $10,000 USD</p>
-            <div class="portfolio-grid">
-                <div class="crypto-card">
-                    <h3>Bitcoin (BTC)</h3>
-                    <p>Cantidad: 0.2 BTC</p>
-                    <p>Valor: $8,000 USD</p>
-                </div>
-                <div class="crypto-card">
-                    <h3>Ethereum (ETH)</h3>
-                    <p>Cantidad: 5 ETH</p>
-                    <p>Valor: $1,500 USD</p>
-                </div>
-                <div class="crypto-card">
-                    <h3>Binance Coin (BNB)</h3>
-                    <p>Cantidad: 10 BNB</p>
-                    <p>Valor: $500 USD</p>
-                </div>
-            </div>
-        </section>
+    <!-- Solana -->
+    <section id="solana" class="cripto-section">
+      <h2>Solana (SOL)</h2>
+      <img src="images/Solana/solana-logo.jpg" alt="Solana" class="cripto-img">
+      <div class="tools">
+        <div class="price" id="solPrice"></div>
+        <button onclick="showCalculator('SOL')">Calcular SOL</button>
+        <button onclick="showPortfolio('SOL')">Simular Inversión</button>
+      </div>
+      <canvas id="solChart"></canvas>
+    </section>
 
-        <!-- Gráfico de precios -->
-        <section class="chart">
-            <h2>Gráfico de Precios</h2>
-            <canvas id="cryptoChart"></canvas>
-        </section>
+    <!-- Cardano -->
+    <section id="cardano" class="cripto-section">
+      <h2>Cardano (ADA)</h2>
+      <img src="images/Cardano/cardano-logo.jpg" alt="Cardano" class="cripto-img">
+      <div class="tools">
+        <div class="price" id="adaPrice"></div>
+        <button onclick="showCalculator('ADA')">Calcular ADA</button>
+        <button onclick="showPortfolio('ADA')">Simular Inversión</button>
+      </div>
+      <canvas id="adaChart"></canvas>
+    </section>
 
-        <!-- Testimonios -->
-        <section class="testimonials">
-            <h2>Testimonios</h2>
-            <div class="testimonial-card">
-                <p>"CriptoEduAr me ayudó a entender el mundo de las criptomonedas y a invertir de manera inteligente."</p>
-                <span>- Juan Pérez</span>
-            </div>
-            <div class="testimonial-card">
-                <p>"La mejor plataforma para estar al día con el mercado cripto. ¡Totalmente recomendada!"</p>
-                <span>- María Gómez</span>
-            </div>
-        </section>
-    </main>
+    <!-- Calculadora -->
+    <section id="calculadora" class="calculadora-section">
+      <h2>Calculadora de Criptomonedas</h2>
+      <input type="number" id="amount" placeholder="Cantidad">
+      <select id="coin">
+        <option value="BTC">Bitcoin (BTC)</option>
+        <option value="ETH">Ethereum (ETH)</option>
+        <option value="SOL">Solana (SOL)</option>
+        <option value="ADA">Cardano (ADA)</option>
+      </select>
+      <button onclick="calculate()">Calcular en USD</button>
+      <p id="result"></p>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 CriptoEduAr🍀   Todos los derechos reservados.</p>
-    </footer>
+    <!-- Noticias -->
+    <section id="noticias">
+      <h2>Últimas Noticias</h2>
+      <div id="newsFeed"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 CriptoEduAr - Innovación Financiera</p>
+  </footer>
+
+  <script>
+    // API de precios (CoinGecko)
+    async function fetchPrice(coin) {
+      const response = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${coin.toLowerCase()}&vs_currencies=usd`);
+      const data = await response.json();
+      return data[coin.toLowerCase()].usd;
+    }
+
+    // Cargar precios en tiempo real
+    async function loadPrices() {
+      document.getElementById('btcPrice').innerHTML = `Precio: $${await fetchPrice('bitcoin')}`;
+      document.getElementById('ethPrice').innerHTML = `Precio: $${await fetchPrice('ethereum')}`;
+      document.getElementById('solPrice').innerHTML = `Precio: $${await fetchPrice('solana')}`;
+      document.getElementById('adaPrice').innerHTML = `Precio: $${await fetchPrice('cardano')}`;
+    }
+
+    // Calculadora
+    async function calculate() {
+      const amount = document.getElementById('amount').value;
+      const coin = document.getElementById('coin').value;
+      const price = await fetchPrice(coin);
+      const total = amount * price;
+      document.getElementById('result').innerHTML = `Valor: $${total.toLocaleString()}`;
+    }
+
+    // Simulador de portafolio
+    async function showPortfolio(coin) {
+      const investment = prompt(`Ingrese su inversión en USD para ${coin}:`);
+      const price = await fetchPrice(coin);
+      const coins = investment / price;
+      alert(`Con $${investment} obtendrías: ${coins.toFixed(4)} ${coin}`);
+    }
+
+    // Gráficos (ejemplo básico)
+    async function loadCharts() {
+      const coins = ['bitcoin', 'ethereum', 'solana', 'cardano'];
+      coins.forEach(async (coin) => {
+        const ctx = document.getElementById(`${coin.charAt(0)}${coin.slice(1)}Chart`).getContext('2d');
+        const price = await fetchPrice(coin);
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['Hoy'],
+            datasets: [{
+              label: `Precio de ${coin.toUpperCase()}`,
+              data: [price],
+              borderColor: '#6a0dad',
+              fill: false,
+              tension: 0.1
+            }]
+          }
+        });
+      });
+    }
+
+    // Noticias (API de CoinDesk)
+    async function fetchNews() {
+      const response = await fetch('https://api.coindesk.com/v1/news/');
+      const data = await response.json();
+      const newsFeed = document.getElementById('newsFeed');
+      data.articles.forEach(article => {
+        newsFeed.innerHTML += `
+          <div class="news-item">
+            <h3>${article.title}</h3>
+            <p>${article.summary}</p>
+          </div>
+        `;
+      });
+    }
+
+    // Inicializar todo
+    document.addEventListener('DOMContentLoaded', () => {
+      loadPrices();
+      loadCharts();
+      fetchNews();
+    });
+  </script>
 </body>
-
 </html>
