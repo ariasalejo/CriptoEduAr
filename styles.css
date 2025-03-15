@@ -3,7 +3,7 @@
 * {
     margin: 0;
     padding: 0;
-<<<<<<< HEAD
+ HEAD
     background-color: #f4f4f9;
     color: #333;
     transition: background-color 0.3s, color 0.3s;
@@ -101,7 +101,7 @@ footer {
 }
 
 /* Contenido principal */
-=======
+
     box-sizing: border-box;
 }
 
@@ -152,26 +152,26 @@ header p {
     padding: 20px;
 }
 
-<<<<<<< HEAD
+HEAD
 h1, h2 {
     text-align: center;
 }
 
 form {
-=======
+
 /* Calculadora de precios */
 #calculadora form {
->>>>>>> 3c23b30 (Añadir gráfico de precios, simulador de portafolio y calculadora de precios)
+3c23b30 (Añadir gráfico de precios, simulador de portafolio y calculadora de precios)
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-<<<<<<< HEAD
+ HEAD
 button {
     padding: 10px;
     background-color: #2c3e50;
-=======
+
 #calculadora label {
     font-weight: bold;
 }
@@ -185,7 +185,7 @@ button {
 
 #calculadora button.btn {
     background-color: var(--primary-color);
->>>>>>> 3c23b30 (Añadir gráfico de precios, simulador de portafolio y calculadora de precios)
+3c23b30 (Añadir gráfico de precios, simulador de portafolio y calculadora de precios)
     color: white;
     border: none;
     border-radius: 4px;
@@ -196,12 +196,12 @@ button {
     background-color: var(--secondary-color);
 }
 
-<<<<<<< HEAD
+HEAD
 #total-value {
     text-align: center;
     font-size: 1.2em;
     color: #27ae60;
-=======
+
 .result {
     margin-top: 20px;
     font-size: 1.2rem;
@@ -214,7 +214,7 @@ button {
 #grafico canvas {
     width: 100%;
     height: auto;
->>>>>>> 3c23b30 (Añadir gráfico de precios, simulador de portafolio y calculadora de precios)
+3c23b30 (Añadir gráfico de precios, simulador de portafolio y calculadora de precios)
 }
 
 /* Pie de página profesional */
