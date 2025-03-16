@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Archivos de sistema operativo
 .DS_Store
 Thumbs.db
@@ -22,4 +23,50 @@ node_modules/
 # Otros archivos
 *.swp
 *.bak
+=======
+# === Archivos del sistema ===
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
+
+# === IDEs y editores ===
+# VS Code
+.vscode/
+# JetBrains (WebStorm, PyCharm, etc.)
+.idea/
+# Sublime Text
+*.sublime-*
+
+# === Temporales y logs ===
+*.log
+*.tmp
+*.bak
+*.swp
+
+# === Carpetas específicas de tu proyecto ===
+# Si usas Node.js (ej: React/Vue)
+node_modules/
+package-lock.json
+yarn.lock
+dist/
+build/
+
+#  Archivos sensibles 
+# Variables de entorno (ej: claves API)
+.env
+.env.local
+
+#  Contenido multimedia (si NO quieres subirlo a GitHub) ===
+# Comenta estas líneas si SÍ quieres incluir imágenes/documentos
+# /imagenes/
+# /documentos/
+
+# === Archivos de prueba ===
+# Ignora archivos de prueba local
+test-results/
+coverage/
+wp-content/uploads/
+wp-config.php
+6e4dd43ad29e9ec7859fa23f66436860e8ace864
 

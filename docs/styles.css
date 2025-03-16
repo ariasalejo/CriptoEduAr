@@ -1,0 +1,85 @@
+/* Variables de colores */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #8e44ad;
+    --background-color: #f4f6f9;
+    --text-color: #2c3e50;
+    --success-color: #27ae60;
+    --neon-glow: #00ffe0;
+}
+
+/* Modo Oscuro */
+.dark-mode {
+    --background-color: #1e1e1e;
+    --text-color: #f5f5f5;
+}
+
+/* Reset básico */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    animation: backgroundAnimation 15s infinite alternate;
+}
+
+/* Animación de fondo con gradiente */
+@keyframes backgroundAnimation {
+    0% { background-color: #1e1e1e; }
+    50% { background-color: #2c3e50; }
+    100% { background-color: #1a1a2e; }
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Efecto de botón con brillo de neón */
+button {
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 5px var(--neon-glow);
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    box-shadow: 0 0 15px var(--neon-glow), 0 0 30px var(--neon-glow);
+    transform: scale(1.05);
+}
+
+/* Efecto de texto holográfico */
+h1, h2, h3 {
+    background: linear-gradient(90deg, #3498db, #8e44ad, #f39c12);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Efecto sutil en el texto */
+p {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+/* Estilo para modo oscuro */
+.dark-mode p {
+    color: #f5f5f5;
+}
+
+/* Efecto para el modo oscuro en el contenedor */
+.dark-mode .container {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 15px var(--neon-glow);
+}
