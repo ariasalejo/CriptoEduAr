@@ -1,0 +1,25 @@
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Entornos virtuales
+venv/
+*.pyc
+__pycache__/
+
+# Archivos de caché
+node_modules/
+.cache/
+.vscode/
+
+# Archivos de registro
+*.log
+
+# Archivos de configuración sensibles
+.env
+*.ini
+
+# Otros archivos
+*.swp
+*.bak
+
