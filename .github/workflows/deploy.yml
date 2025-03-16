@@ -1,0 +1,26 @@
+name: Desplegar a GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Desplegar cuando se suben cambios a la rama main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v3
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v3
+
+      - name: Subir artefactos
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: './docs' # La carpeta que contiene tu sitio estático
+
+      - name: Desplegar a GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
