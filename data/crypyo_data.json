@@ -1,0 +1,84 @@
+[
+  {
+    "id": "bitcoin",
+    "nombre": "Bitcoin",
+    "simbolo": "BTC",
+    "precio_usd": 60000,
+    "cambio_24h": 2.5,
+    "volumen_24h": 30000000000,
+    "capitalizacion_mercado": 1200000000000,
+    "imagen": "ruta/a/bitcoin.png",
+    "descripcion": "Bitcoin es una criptomoneda descentralizada...",
+    "enlace_web": "https://bitcoin.org/es/"
+  },
+  {
+    "id": "ethereum",
+    "nombre": "Ethereum",
+    "simbolo": "ETH",
+    "precio_usd": 4000,
+    "cambio_24h": -1.2,
+    "volumen_24h": 15000000000,
+    "capitalizacion_mercado": 480000000000,
+    "imagen": "ruta/a/ethereum.png",
+    "descripcion": "Ethereum es una plataforma de contratos inteligentes...",
+    "enlace_web": "https://ethereum.org/es/"
+  },
+    {
+    "id": "tether",
+    "nombre": "Tether",
+    "simbolo": "USDT",
+    "precio_usd": 1,
+    "cambio_24h": 0.1,
+    "volumen_24h": 75000000000,
+    "capitalizacion_mercado": 70000000000,
+    "imagen": "ruta/a/tether.png",
+    "descripcion": "Tether es una criptomoneda estable vinculada al dólar estadounidense...",
+    "enlace_web": "https://tether.to/"
+  },
+    {
+    "id": "binancecoin",
+    "nombre": "Binance Coin",
+    "simbolo": "BNB",
+    "precio_usd": 500,
+    "cambio_24h": 0.8,
+    "volumen_24h": 3000000000,
+    "capitalizacion_mercado": 80000000000,
+    "imagen": "ruta/a/binancecoin.png",
+    "descripcion": "Binance Coin es la criptomoneda nativa de la plataforma Binance...",
+    "enlace_web": "https://www.binance.com/es/bnb"
+  },
+    {
+    "id": "cardano",
+    "nombre": "Cardano",
+    "simbolo": "ADA",
+    "precio_usd": 2,
+    "cambio_24h": -2.3,
+    "volumen_24h": 5000000000,
+    "capitalizacion_mercado": 60000000000,
+    "imagen": "ruta/a/cardano.png",
+    "descripcion": "Cardano es una plataforma blockchain de tercera generación...",
+    "enlace_web": "https://cardano.org/es/"
+  }
+]
+ async function obtenerDatosCripto() {
+  const respuesta = await fetch(
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false"
+  );
+  const datos = await respuesta.json();
+  const datosFormateados = datos.map((cripto) => ({
+    id: cripto.id,
+    nombre: cripto.name,
+    simbolo: cripto.symbol.toUpperCase(),
+    precio_usd: cripto.current_price,
+    cambio_24h: cripto.price_change_percentage_24h,
+    volumen_24h: cripto.total_volume,
+    capitalizacion_mercado: cripto.market_cap,
+    imagen: cripto.image,
+    descripcion: cripto.description,
+    enlace_web: cripto.links.homepage[0],
+  }));
+  console.log(JSON.stringify(datosFormateados, null, 2)); // Muestra los datos en la consola
+  // Aquí puedes guardar los datos en un archivo JSON
+}
+
+obtenerDatosCripto();

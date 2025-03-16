@@ -1,0 +1,49 @@
+# Sitio Web
+title: CriptoEduAr
+email: tuemail@ejemplo.com # Reemplaza con tu correo electrónico real
+description: >-
+  Tu plataforma para aprender sobre criptomonedas.
+baseurl: "" # El subdirectorio de tu sitio web
+url: "https://ariasalejo.github.io/CriptoEduAr" # La URL de producción
+twitter_username: ariasalejo # Reemplaza con tu usuario de Twitter si tienes
+github_username:  ariasalejo
+
+# Construcción
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Colecciones
+collections:
+  cursos:
+    output: true
+
+# Configuración de Minima (Tema)
+minima:
+  skin: dark # O light
+  social_links:
+    - { platform: github, user_url: "https://github.com/ariasalejo" }
+    - { platform: twitter, user_url: "https://twitter.com/ariasalejo" } # Reemplaza con tu usuario de Twitter si tienes
+
+# Excluir archivos y carpetas de la construcción
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Configuración de SEO
+jekyll-seo-tag:
+  site_name: CriptoEduAr
+  title: CriptoEduAr
+  description: Tu plataforma para aprender sobre criptomonedas.
+  author: ariasalejo
+  canonical: https://ariasalejo.github.io/CriptoEduAr/
+  social:
+    twitter:
+      username: ariasalejo # Reemplaza con tu usuario de Twitter si tienes
