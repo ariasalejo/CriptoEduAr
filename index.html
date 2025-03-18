@@ -1,88 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CriptoEduAr - Inicio</title>
-    <link rel="stylesheet" href="static/css/styles.css">
-    <link rel="stylesheet" href="static/css/animations.css">
+    <meta name="description" content="CriptoEduAr: Aprende sobre criptomonedas, blockchain y análisis de precios en tiempo real.">
+    <title>CriptoEduAr</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/logo.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
+
 <body>
-    <header class="main-header">
-        <nav class="main-nav">
-            <a href="#" class="nav-link active">Inicio</a>
-            <a href="#" class="nav-link">Cursos</a>
-            <a href="#" class="nav-link">Análisis</a>
-            <a href="#" class="nav-link">Wallet</a>
-            <a href="#" class="nav-link">Comunidad</a>
-        </nav>
+    <header class="hero">
+        <h1>CriptoEduAr</h1>
+        <p>Tu guía educativa sobre criptomonedas y blockchain.</p>
+        <button id="theme-toggle">🌞 Modo Claro / Oscuro 🌙</button>
     </header>
 
-    <main class="main-content">
-        <section id="buscar-cripto" class="search-section">
-            <h2 class="section-title">Encuentra tu Criptomoneda</h2>
-            <div class="search-box">
-                <input type="text" id="cripto-search" class="search-input" placeholder="Ej: Bitcoin, Ethereum...">
-                <button id="search-button" class="search-button">Buscar</button>
-            </div>
-            <div id="search-results" class="search-results"></div>
+    <main class="container">
+
+        <!-- Gráfico de Precios -->
+        <section id="grafico">
+            <h2>Gráfico de Precios</h2>
+            <canvas id="priceChart"></canvas>
         </section>
 
-        <section id="cursos-destacados" class="courses-section">
-            <h2 class="section-title">Nuestros Cursos Populares</h2>
-            <div class="courses-grid">
-                <article class="course-item" data-curso="bitcoin">
-                    <h3 class="course-title">Introducción a Bitcoin</h3>
-                    <p class="course-description">Aprende los fundamentos de Bitcoin.</p>
-                    <button class="course-button">Ver Curso</button>
-                </article>
-                <article class="course-item" data-curso="ethereum">
-                    <h3 class="course-title">Desarrollo en Ethereum</h3>
-                    <p class="course-description">Crea aplicaciones descentralizadas.</p>
-                    <button class="course-button">Ver Curso</button>
-                </article>
-            </div>
-        </section>
-
-        <section id="wallet" class="wallet-section">
-            <h2 class="section-title">Conecta tu Wallet</h2>
-            <button id="wallet-connect" class="wallet-button">Conectar Wallet</button>
-            <div id="wallet-data" class="wallet-data"></div>
-        </section>
-
-        <section id="analisis-mercado" class="market-section">
-            <h2 class="section-title">Análisis del Mercado Cripto</h2>
-            <canvas id="precio-cripto-chart"></canvas>
-        </section>
-
-        <section id="calculadora-conversion" class="calculator-section">
-            <h2 class="section-title">Calculadora de Conversión</h2>
-            <div class="calculator-form">
-                <input type="number" id="cantidad-origen" class="calculator-input">
-                <select id="cripto-origen" class="calculator-select">
-                    <option value="btc">Bitcoin</option>
-                    <option value="eth">Ethereum</option>
+        <!-- Calculadora de Precios -->
+        <section id="calculadora">
+            <h2>Calculadora de Precios</h2>
+            <form id="crypto-calculator">
+                <label for="crypto">Criptomoneda:</label>
+                <select id="crypto">
+                    <option value="bitcoin">Bitcoin (BTC)</option>
+                    <option value="ethereum">Ethereum (ETH)</option>
+                    <option value="binancecoin">Binance Coin (BNB)</option>
+                    <option value="cardano">Cardano (ADA)</option>
+                    <option value="solana">Solana (SOL)</option>
                 </select>
-                <select id="cripto-destino" class="calculator-select">
+
+                <label for="amount">Cantidad:</label>
+                <input type="number" id="amount" placeholder="Ej: 1" min="0.01" step="0.01">
+
+                <label for="currency">Divisa:</label>
+                <select id="currency">
                     <option value="usd">USD</option>
-                    <option value="eth">Ethereum</option>
+                    <option value="eur">EUR</option>
+                    <option value="ars">ARS</option>
+                    <option value="mxn">MXN</option>
                 </select>
-                <button id="calcular" class="calculator-button">Calcular</button>
-            </div>
-            <div id="resultado" class="calculator-result"></div>
+
+                <button type="submit">Calcular</button>
+            </form>
+            <p id="result" class="result"></p>
+        </section>
+
+        <!-- Portafolio Virtual -->
+        <section id="portfolio">
+            <h2>Mi Portafolio</h2>
+            <ul id="portfolio-list"></ul>
+        </section>
+
+        <!-- Noticias Cripto -->
+        <section id="news">
+            <h2>Noticias en Tiempo Real</h2>
+            <ul id="news-list"></ul>
+        </section>
+
+        <!-- Alerta de Precios -->
+        <section id="alert-section">
+            <h2>Alertas de Precio</h2>
+            <input type="number" id="price-alert" placeholder="Ej: 30000">
+            <button id="set-alert">Establecer Alerta</button>
+            <p id="alert-status"></p>
+        </section>
+
+        <!-- Análisis de Sentimiento -->
+        <section id="sentiment">
+            <h2>Análisis de Sentimiento</h2>
+            <p id="sentiment-result">Cargando datos...</p>
         </section>
     </main>
 
-    <footer class="main-footer">
-        <p class="footer-text">&copy; 2024 CriptoEduAr</p>
+    <footer>
+        <p>&copy; 2025 CriptoEduAr. Hecho con ❤️ por Alejandro Arias.</p>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="static/js/script.js" defer></script>
-    <script src="static/js/search.js" defer></script>
-    <script src="static/js/wallet.js" defer></script>
-    <script src="static/js/chart.js" defer></script>
-    <script src="static/js/calculator.js" defer></script>
 </body>
-</html>
 
+</html>
