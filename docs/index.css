@@ -1,0 +1,138 @@
+/* Estilo general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #0d0d0d;
+  color: #ffffff;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* ENCABEZADO */
+header {
+  background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+  border-bottom: 2px solid #00ffcc;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 15px #00ffee;
+}
+
+#logo-container img {
+  height: 60px;
+}
+
+#main-menu ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+
+#main-menu a {
+  color: #00ffcc;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border: 2px solid #00ffcc;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+#main-menu a:hover {
+  background: #00ffcc;
+  color: #000;
+  box-shadow: 0 0 12px #00ffee;
+}
+
+/* Secciones encerradas en cajas de neón */
+section.neon-box {
+  border: 2px solid #00ffcc;
+  box-shadow: 0 0 20px #00ffcc;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 30px 0;
+  transition: 0.3s ease-in-out;
+}
+
+section.neon-box:active,
+section.neon-box:hover {
+  box-shadow: 0 0 35px #00ffee, 0 0 15px #00ffee inset;
+  transform: scale(1.01);
+}
+
+/* Botón de neón */
+.btn-neon {
+  background: transparent;
+  border: 2px solid #00ffcc;
+  color: #00ffcc;
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-shadow: 0 0 5px #00ffee;
+}
+
+.btn-neon:hover {
+  background: #00ffee;
+  color: #000;
+  box-shadow: 0 0 25px #00ffee;
+  transform: scale(1.05);
+}
+
+/* Formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form input,
+form textarea {
+  padding: 10px;
+  border: 2px solid #00ffcc;
+  border-radius: 10px;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #00ffee;
+  box-shadow: 0 0 10px #00ffee;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+  #main-menu ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-neon {
+    width: 100%;
+    text-align: center;
+  }
+
+  iframe {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* Pie de página */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  border-top: 2px solid #00ffcc;
+  padding-top: 20px;
+  color: #888;
+  font-size: 14px;
+}
